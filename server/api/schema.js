@@ -11,8 +11,16 @@ const { gql } = require("apollo-server-express");
  * We will create the custom Date scalar together.
  */
 module.exports = gql`
-  # scalar Date
-
+   scalar Date
+  input SignUpInput {
+    fullname: String!
+    email: String!
+    password: String!
+  }
+  input LogInInput{
+    email: String!
+    password: String!
+  }
   type Item {
     id: ID!
     title: String!
@@ -35,7 +43,7 @@ module.exports = gql`
     id: ID!
     title: String!
   }
-  type AuthPayload {
+  type Authpayload {
     token: String
     user: User
   }
@@ -58,7 +66,8 @@ module.exports = gql`
     tags: [Tag]
   }
   type Mutation {
-    addItem(
-      item:NewItemInput!
-    )
-  }
+    signup(user: SignUpInput!): Authpayload!
+    login(user: LogInInput!): Authpayload!
+    logout: Boolean!
+    addItem(item: NewItemInput!): Item
+  }`

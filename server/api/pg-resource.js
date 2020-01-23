@@ -10,13 +10,13 @@ function tagsQueryString(tags, itemid, result) {
         // Create User
       async createUser({ fullname, email, password }) {
         const newUserInsert = {
-          text: `INSERT INTO users(name, email, password($1, $2, $3))`,
+          text: `INSERT INTO USERS (name, email, password), values ($1, $2, $3) RETURNING *`,
           values: [fullname, email, password],
         };
         try {
           const user = await postgres.query(newUserInsert);
           return user.rows[0];
-        } catch (e) {
+        } catch (err) {
           switch (true) {
             case /users_fullname_key/.test(e.message):
               throw "An account with this username already exists.";
@@ -65,13 +65,14 @@ function tagsQueryString(tags, itemid, result) {
          *  You'll need to complete the query first before attempting this exercise.
          */
         const findUserQuery = {
-          text: 'SELECT * FROM users WHERE id=$1',
-          values: [id]
+          text: 'SELECT * FROM USERS WHERE id=$1',
+          values: id ? [id] : []
         };
         try {
           const user = await postgres.query(findUserQuery);
+          return user.rows[0];
         } catch (err) {
-          throw "User with that ID was not found";
+          throw e + "User with that ID was not found";
         }
         /**
          *  Refactor the following code using the error handling logic described above.
@@ -81,55 +82,55 @@ function tagsQueryString(tags, itemid, result) {
          *  Ex: If the user is not found from the DB throw 'User is not found'
          *  If the password is incorrect throw 'User or Password incorrect'
          */
-        const user = await postgres.query(findUserQuery);
-        return user;
+        // const user = await postgres.query(findUserQuery);
+        // return user;
         // -------------------------------
       },
 
       //Get Items
       async getItems(idToOmit) {
-        const items = await postgres.query({
-          /**
-           *  @TODO:
-           *
-           *  idToOmit = ownerId
-           *
-           *  Get all Items. If the idToOmit parameter has a value,
-           *  the query should only return Items were the ownerid !== idToOmit
-           *
-           *  Hint: You'll need to use a conditional AND/WHERE clause
-           *  to your query text using string interpolation
-           */
-          text:`
-          Select * From tags 
-          Inner Join itemtags 
-          On tags.tagid = itemtags.tagid 
-          WHERE itemtags.itemid = $1
-        `,
-          values: idToOmit ? [idToOmit] : [],
-        });
-        return items.rows;
+        const getItems = {
+          text: `SELECT * FROM items WHERE itemowner != $1`,
+          values: idToOmit ? [idToOmit] : []
+        };
+        try {
+          const items = await postgres.query(getItems);
+          return items.rows;
+        } catch (e) {
+          throw "item not found";
+        }
       },
       async getItemsForUser(id) {
-        const items = await postgres.query({
-          text: `
-            Select * from items
-            Where ownerid = $1
-        `,
-          values: [id],
-        });
-        return items.rows;
+        const getItemsForUser = {
+          text: `SELECT * FROM items WHERE itemowner = $1;`,
+          values: [id]
+        };
+        try {
+          const items = await postgres.query(getItemsForUser);
+          return items.rows;
+        } catch (e) {
+          throw "Items not found";
+        }
       },
       async getBorrowedItemsForUser(id) {
-        const items = await postgres.query({
-          /**
-           *  @TODO:
-           *  Get all Items borrowed by user using their id
-           */
-          text: ``,
-          values: [id],
-        });
-        return items.rows;
+        const borrowedItems = {
+          text: `SELECT * FROM items
+          WHERE borrowid = $1`,
+          values: [id]
+        };
+        try {
+          const items = await postgres.query(getBorrowedItemsForUser)
+        } catch (e) {
+          
+        }
+        //   /**
+        //    *  @TODO:
+        //    *  Get all Items borrowed by user using their id
+        //    */
+        //   text: ``,
+        //   values: [id],
+        // });
+        // return items.rows;
       },
       async getTags() {
         const tags = await postgres.query(
@@ -181,6 +182,7 @@ function tagsQueryString(tags, itemid, result) {
               // Begin postgres transaction
               client.query("BEGIN", async err => {
                 const { title, description, tags } = item;
+
                 // Generate new Item query
                 // @TODO
                 // -------------------------------

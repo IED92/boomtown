@@ -45,10 +45,10 @@ module.exports = (app) => {
    */
 
   app.set("PORT", PORT);
-  app.set(PG_HOSTZ,process.env.PG_HOST || 'localhost');
-  app.set(PG_USER,process.env.PG_USER || 'boomtown');
-  app.set(PG_PASSWORD,process.env.PG_PASSWORD || 'boomtown');
-  app.set(PG_DB,process.env.PG_DB || 'boomtown');
+  app.set('PG_HOST', process.env.PG_HOST || 'localhost');
+  app.set('PG_USER', process.env.PG_USER || 'boomtown');
+  app.set('PG_PASSWORD', process.env.PG_PASSWORD || 'boomtown');
+  app.set('PG_DB', process.env.PG_DB || 'boomtown');
   
   app.use(cookieParser());
 

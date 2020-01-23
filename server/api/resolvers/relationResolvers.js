@@ -48,9 +48,14 @@ const relationResolvers = {
     //   }
     //   // -------------------------------
     // },
-    // async tags() {
-    //   // @TODO: Replace this mock return statement with the correct tags for the queried Item from Postgres
-    //   return []
+    async tags({id}, args, {pgResource, info}) {
+      try {
+        const tags = await pgResource.getTagsForItem(id);
+        return tags
+      } catch (e) {
+        return new ApolloError(e)
+      }
+    }
     //   // -------------------------------
     // },
     // async borrower() {

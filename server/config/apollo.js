@@ -19,7 +19,7 @@ module.exports = ({ app, pgResource }) => {
 
   const schema = makeExecutableSchema({
     typeDefs,
-    resolves
+    resolvers
   });
   // -------------------------------
 
@@ -52,3 +52,4 @@ module.exports = ({ app, pgResource }) => {
     // -------------------------------
   });
 };
+
