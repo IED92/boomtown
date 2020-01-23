@@ -9,24 +9,24 @@ const queryResolvers = app => ({
       const user = await pgResource.getUserById(id);
 
       return user;
-    } catch (e) {
-      throw new ApolloError(e);
+    } catch (err) {
+      throw new ApolloError(err);
     }
   },
   async items(parent, { filter }, { pgResource }, info) {
     try {
       const items = await pgResource.getItems(filter);
       return items;
-    } catch (e) {
-      throw new ApolloError(e);
+    } catch (err) {
+      throw new ApolloError(err);
     }
   },
   async tags(parent, args, { pgResource }, info) {
     try {
       const tags = await pgResource.getTags();
       return tags;
-    } catch (e) {
-      throw new ApolloError(e);
+    } catch (err) {
+      throw new ApolloError(err);
     }
   }
 });
