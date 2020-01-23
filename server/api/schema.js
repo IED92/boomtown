@@ -1,7 +1,6 @@
 const { gql } = require("apollo-server-express");
 
-/**
- *  @TODO: Boomtown Schema
+/*
  *
  * Define the types in your GraphQL schema here.
  * For each type, remove the `_: Boolean` placeholder and add the
