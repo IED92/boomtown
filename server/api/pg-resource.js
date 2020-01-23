@@ -11,12 +11,12 @@ function tagsQueryString(tags, itemid, result) {
 
       // Create User
       async createUser({ fullname, email, password }) {
-        const newUserInsert = {
+        const insertNewUser = {
           text: `INSERT INTO USERS (name, email, password), values ($1, $2, $3) RETURNING *`,
           values: [fullname, email, password],
         };
         try {
-          const user = await postgres.query(newUserInsert);
+          const user = await postgres.query(insertNewUser);
           return user.rows[0];
         } catch (err) {
           switch (true) {
@@ -136,11 +136,12 @@ function tagsQueryString(tags, itemid, result) {
               // Begin postgres transaction
               client.query("BEGIN", async err => {
                 const { title, description, tags } = item;
+                console.log(title);
 
                 const itemsQuery = {
-                  text: `INSERT INTO items (title, description, itemowner, imageurl)
-                  values ($1,$2,$3,$4) RETURNING *;`,
-                  values: [title, description, user.id, imageurl]
+                  text: `INSERT INTO items (title, description, ownerid)
+                  values ($1,$2,$3) RETURNING *;`,
+                  values: [title, description, user.id]
                 };
 
                 const newItem = await postgres.query(itemsQuery);
