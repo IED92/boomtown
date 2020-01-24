@@ -4,14 +4,14 @@ Boomtown is an app that allows sharing between users. It uses peer-to-peer shari
 
 ## Technologies Used:
 We used a variety of open source technologies and libraries:
-- [HTML](https://www.w3schools.com/html/html_intro.asp) 💾
-- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) 💃🏻
-- [JavaScript](https://www.javascript.com/) ☕️
-- [Apollo Web Server](https://www.apollographql.com/) 📶
-- [ExpressJS](https://expressjs.com/) 🏎
-- [GraphQL](https://graphql.org/) 📈
-- [PostgresQL](https://www.postgresql.org/) 🛠
-- [ReactJS](http://react.js) ⚛️
+- [HTML](https://www.w3schools.com/html/html_intro.asp)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [JavaScript](https://www.javascript.com/)
+- [Apollo Web Server](https://www.apollographql.com/)
+- [ExpressJS](https://expressjs.com/)
+- [GraphQL](https://graphql.org/)
+- [PostgresQL](https://www.postgresql.org/)
+- [ReactJS](http://react.js)
 
 ## Personal takeaways:
 
