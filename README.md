@@ -1,6 +1,6 @@
 # Boomtown 🏙
 
-Boomtown is an app that allows sharing between users. It uses peer-to-peer sharing which allows users to borrow items from other users. The users can submit thier own personal items to be available to borrow.
+Boomtown is an app that allows sharing between users. It uses peer-to-peer sharing which allows users to borrow items from other users. The users can submit thier own personal items to be made available to borrow.
 
 ## Technologies Used:
 We used a variety of open source technologies and libraries:
