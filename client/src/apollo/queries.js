@@ -26,6 +26,7 @@ export const ALL_ITEMS_QUERY = gql`
   query items($filter: ID) {
     # @TODO: Query items (optionally by tag id) and return the ItemFields fragment.
   }
+  ...Items
   ${ItemFields}
 `;
 
