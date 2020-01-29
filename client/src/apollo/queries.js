@@ -66,6 +66,18 @@ export const ADD_ITEM_MUTATION = gql`
     addItem(item: $item)
   }
 `;
+// mutation addItem($item: NewItemInput!) {
+//   addItem(item: $item) {
+//     id
+//     title
+//     description
+//     imageurl
+//     tags {
+//       id
+//       title
+//     }
+//   }
+// }
 
 /**
  * Auth-related queries and mutations.

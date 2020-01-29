@@ -13,6 +13,7 @@ import Profile from "../pages/Profile";
 export default () => (
   <Fragment>
     <Router>
+      console.log(Router);
       {/* @TODO: Add your menu component here */}
       <Switch>
         <Route exact path="/items" component={Items} />

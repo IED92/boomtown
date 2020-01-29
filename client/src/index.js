@@ -7,6 +7,12 @@ import client from "./apollo";
 import registerServiceWorker from "./registerServiceWorker";
 import theme from "./theme";
 import AppRoutes from "./routes";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch
+} from "react-router-dom";
 /**
  * @TODO: Wrap your app with the Item Preview Provider
  *
@@ -26,7 +32,6 @@ import AppRoutes from "./routes";
 // @TODO: Remove this import once you have your router working below
 // -------------------------------
 import "./index.css";
-import { Router } from "react-router";
 const App = () => {
   return (
     <MuiThemeProvider theme={theme}>
