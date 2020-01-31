@@ -7,6 +7,7 @@ import ItemCard from "../ItemCard";
 // "TypeError: items.map is not a function"
 
 const ItemGrid = ({ items }) => {
+  console.log(items);
   return (
     <Grid>
       {items.map(item => (
