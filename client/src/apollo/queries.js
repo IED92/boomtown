@@ -31,9 +31,9 @@ const ItemFields = gql`
 `;
 
 export const ALL_ITEMS_QUERY = gql`
-  query items($filter: ID!) {
+  query items($filter: ID) {
     items(filter: $filter) {
-      ...ItemsFeilds
+      ...ItemFields
     }
   }
   ${ItemFields}
@@ -46,9 +46,12 @@ export const ALL_USER_ITEMS_QUERY = gql`
       bio
       email
       fullname
-      items
-      borrowed
-      # Use the ItemFields fragment for the items and borrowed fields.
+      borrowed {
+        ...ItemFields
+      }
+      items {
+        ...ItemFields
+      }
     }
   }
   ${ItemFields}
@@ -56,41 +59,36 @@ export const ALL_USER_ITEMS_QUERY = gql`
 
 export const ALL_TAGS_QUERY = gql`
   query {
-    id
-    title
+    tags {
+      id
+      title
+    }
   }
 `;
 
 export const ADD_ITEM_MUTATION = gql`
   mutation addItem($item: NewItemInput!) {
-    addItem(item: $item)
+    addItem(item: $item) {
+      id
+      title
+      tags {
+        id
+      }
+    }
   }
 `;
-// mutation addItem($item: NewItemInput!) {
-//   addItem(item: $item) {
-//     id
-//     title
-//     description
-//     imageurl
-//     tags {
-//       id
-//       title
-//     }
-//   }
-// }
-
 /**
  * Auth-related queries and mutations.
  */
 
-export const VIEWER_QUERY = gql`
-  query {
-    id
-    email
-    fullname
-    bio
-  }
-`;
+// export const VIEWER_QUERY = gql`
+//   query {
+//     id
+//     email
+//     fullname
+//     bio
+//   }
+// `;
 // export const LOGOUT_MUTATION = gql`
 //   mutation {
 //     # @TODO: Run the logout mutation.

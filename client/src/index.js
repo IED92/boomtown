@@ -7,12 +7,7 @@ import client from "./apollo";
 import registerServiceWorker from "./registerServiceWorker";
 import theme from "./theme";
 import AppRoutes from "./routes";
-import {
-  BrowserRouter as Router
-  // Redirect,
-  // Route,
-  // Switch
-} from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 /**
  * @TODO: Wrap your app with the Item Preview Provider
  *
