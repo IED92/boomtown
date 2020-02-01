@@ -15,7 +15,7 @@ const ItemFields = gql`
       id
       title
     }
-    itemowner {
+    ownerid {
       id
       fullname
       email
@@ -31,7 +31,7 @@ const ItemFields = gql`
 `;
 
 export const ALL_ITEMS_QUERY = gql`
-  query items($filter: ID) {
+  query items($filter: ID!) {
     items(filter: $filter) {
       ...ItemFields
     }

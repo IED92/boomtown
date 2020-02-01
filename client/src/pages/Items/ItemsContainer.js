@@ -1,4 +1,4 @@
-// import React, { Component } from "react";
+import React, { Component } from "react";
 import Items from "./Items";
 // import FullScreenLoader from "../../components/FullScreenLoader";
 import { Query } from "react-apollo";
@@ -11,9 +11,13 @@ class ItemsContainer extends Component {
         {({ loading, error, data }) => {
           const { items } = data;
           // if (loading) return <FullScreenLoader />;
-          if (loading) return "Learning...";
+          if (loading) return "Loading...";
           if (error) return `Error! ${error.message}`;
-          return <Items items={items} />;
+          return items !== null && items !== undefined ? (
+            <Items items={items} />
+          ) : (
+            <p>No items</p>
+          );
         }}
       </Query>
     );

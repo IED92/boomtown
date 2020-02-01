@@ -11,8 +11,9 @@ const httpLink = createHttpLink({
 const client = new ApolloClient({
   link: ApolloLink.from([
     onError(({ graphQLErrors, networkError }) => {
-      // Log better error messages to console
+      console.log(process.env.NODE_ENV);
       if (graphQLErrors) {
+        console.log();
         graphQLErrors.map(({ message, locations, path }) =>
           console.log(
             `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`

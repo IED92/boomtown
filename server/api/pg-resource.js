@@ -115,7 +115,7 @@ module.exports = postgres => {
         text: `
             SELECT * From tags 
             INNER JOIN itemtags 
-            ON tags.tagid = itemtags.tagid 
+            ON tags.id = itemtags.tagid 
             WHERE itemtags.itemid = $1`,
         values: [id]
       };
@@ -134,7 +134,6 @@ module.exports = postgres => {
               // Begin postgres transaction
               client.query("BEGIN", async err => {
                 const { title, description, tags } = item;
-                console.log(title);
 
                 const itemsQuery = {
                   text: `INSERT INTO items (title, description, ownerid)

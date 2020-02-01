@@ -21,9 +21,9 @@ const relationResolvers = {
   },
 
   Item: {
-    async itemowner({ itemowner }, args, { pgResource }, info) {
+    async ownerid({ ownerid }, args, { pgResource }, info) {
       try {
-        const owner = await pgResource.getUserbyId(itemowner);
+        const owner = await pgResource.getUserById(ownerid);
         return owner;
       } catch (err) {
         throw new ApolloError(err);

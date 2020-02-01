@@ -1,23 +1,22 @@
-import { withStyles, Grid } from "@material-ui/core";
+import { makeStyles, Grid } from "@material-ui/core";
 import React from "react";
 import styles from "./styles";
 import ItemCard from "../ItemCard";
 
-// TODO: Figure out why this file throws an erro:
-// "TypeError: items.map is not a function"
-
 const ItemGrid = ({ items }) => {
-  console.log(items);
+  const classes = styles();
   return (
     <Grid>
       {items.map(item => (
         <Grid item key={item.id}>
           <ItemCard
+            owner={item.ownerid}
             title={item.title}
             imageurl={item.imageurl}
             description={item.description}
             created={item.created}
             tags={item.tags}
+            classes={classes}
           />
         </Grid>
       ))}
@@ -25,4 +24,5 @@ const ItemGrid = ({ items }) => {
   );
 };
 
-export default withStyles(styles)(ItemGrid);
+// export default withStyles(styles)(ItemGrid);
+export default ItemGrid;

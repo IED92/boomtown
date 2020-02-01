@@ -32,6 +32,7 @@ const App = () => {
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <ApolloProvider client={client}>
+        {/* TODO: Add Layout component tags here */}
         <Router>
           <AppRoutes />
         </Router>
