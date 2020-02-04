@@ -9,14 +9,14 @@ import Items from "../pages/Items";
 import Home from "../pages/Home";
 import Share from "../pages/Share";
 import Profile from "../pages/Profile";
+import NavBar from "../components/NavBar";
 
 export default () => {
   console.log(window);
   return (
     <Fragment>
       <Router>
-        {/* @TODO: Add your menu component here */}
-        {window.location.pathname !== "/items" && <div>MENU HERE</div>}
+        {window.location.pathname !== "/welcome" && <NavBar />}
         <Switch>
           <Route exact path="/items" component={Items} />
           <Route exact path="/welcome" component={Home} />

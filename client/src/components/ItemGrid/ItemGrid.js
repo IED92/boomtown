@@ -1,4 +1,4 @@
-import { makeStyles, Grid } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import React from "react";
 import styles from "./styles";
 import ItemCard from "../ItemCard";
@@ -12,7 +12,7 @@ const ItemGrid = ({ items }) => {
           <ItemCard
             owner={item.ownerid}
             title={item.title}
-            imageurl={item.imageurl}
+            image={item.imageurl}
             description={item.description}
             created={item.created}
             tags={item.tags}

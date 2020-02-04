@@ -854,6 +854,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.7.7", "@babel/runtime@^7.8.3":
+  version "7.8.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.4.tgz#d79f5a2040f7caa24d53e563aad49cbc05581308"
+  integrity sha512-neAp3zt80trRVBI1x0azq6c57aNBqYZH8KhMm3TaB7wEI5Q4A2SHfBHE8w9gOhI/lrqxtEbXZgQIrHP+wvSGwQ==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/template@^7.1.0", "@babel/template@^7.2.2", "@babel/template@^7.4.4":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.4.4.tgz#f4b88d1225689a08f5bc3a17483545be9e4ed237"
@@ -1093,6 +1100,13 @@
     "@svgr/plugin-jsx" "^4.1.0"
     "@svgr/plugin-svgo" "^4.0.3"
     loader-utils "^1.1.0"
+
+"@tanem/svg-injector@^8.0.39":
+  version "8.0.39"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-8.0.39.tgz#4f7aa13c2cd8a6827d7931180b01a35862acb792"
+  integrity sha512-q1vZwp8lOYht9njFZASpV2dr8XLXCun0OUQgS7/NcB2zzVn4qIyW/33H8XXKw08WZ0cuKYzO7F9jitC7NK0VrQ==
+  dependencies:
+    "@babel/runtime" "^7.7.7"
 
 "@types/node@*", "@types/node@>=6":
   version "12.0.7"
@@ -8630,6 +8644,15 @@ react-scripts@^2.1.3:
   optionalDependencies:
     fsevents "1.2.4"
 
+react-svg@^11.0.9:
+  version "11.0.9"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-11.0.9.tgz#0387c95bce583922ae84035ad7596bcafaffbb91"
+  integrity sha512-MHgMF6JDz7FBUXry3ynyQTxxMnd5HISlVWSXP6qpcNtXZ5Z4Zp9n/0wS2WPnKp8zLguy+C7LK1R/n2b27tj5uQ==
+  dependencies:
+    "@babel/runtime" "^7.8.3"
+    "@tanem/svg-injector" "^8.0.39"
+    prop-types "^15.7.2"
+
 react-transition-group@^4.0.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.1.0.tgz#7b50c0a93a6c127336187252c3c1a70eff3304ce"
@@ -8639,15 +8662,14 @@ react-transition-group@^4.0.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react@^16.4.1:
-  version "16.8.6"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
-  integrity sha512-pC0uMkhLaHm11ZSJULfOBqV4tIZkx87ZLvbbQYunNixAAvjnC+snJCg0XQXn9VIsttVsbZP/H/ewzgsd5fxKXw==
+react@^16.12.0:
+  version "16.12.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
+  integrity sha512-fglqy3k5E+81pA8s+7K0/T3DBCF0ZDOher1elBFzF7O6arXJgzyu/FW+COxFvAWXJoJN9KIZbT2LXlukwphYTA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.13.6"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"

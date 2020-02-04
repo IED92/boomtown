@@ -6,77 +6,35 @@ import {
   CardContent,
   CardMedia,
   Button,
-  Typography,
-  withStyles
+  Typography
 } from "@material-ui/core";
-import styles from "./styles";
+// import styles from "./styles";
 
 const ItemCard = props => {
-  const { title, imageurl, description, created, tags, owner, classes } = props;
+  const { item, classes } = props;
+  console.log(props);
 
   return (
     <Card className={classes.card}>
       <CardActionArea>
         <CardMedia
-          image="http://place-puppy.com/400x250"
+          src="http://place-puppy.com/400x250"
           title="placeholder"
-          className={classes.media}
+          className={classes.cardMedia}
         />
-        <CardContent className={classes.text}>
-          <Typography>{owner.fullname + " " + created}</Typography>
-          <Typography>{title}</Typography>
-          <Typography>{description}</Typography>
+        <CardContent className={classes.cardContent}>
+          <Typography>{item.created}</Typography>
+          <Typography>{item && item.title}</Typography>
+          <Typography>{item && item.description}</Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="large" className={classes.button}>
+        <Button size="large" className={classes.borrowButton}>
           Borrow
         </Button>
       </CardActions>
     </Card>
   );
 };
-
-// class ItemCard extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {};
-//   }
-
-//   render() {
-//     console.log("ItemCard: ", this.props);
-//     const {
-//       title,
-//       imageurl,
-//       description,
-//       created,
-//       tags,
-//       owner,
-//       classes
-//     } = this.props;
-
-//     return (
-//       <Card className={classes.card}>
-//         <CardActionArea>
-//           <CardMedia
-//             image="http://place-puppy.com/400x250"
-//             title="placeholder"
-//             className={classes.media}
-//           />
-//           <CardContent className={classes.text}>
-//             <Typography>{owner.fullname + " " + created}</Typography>
-//             <Typography>{title}</Typography>
-//             <Typography>{description}</Typography>
-//           </CardContent>
-//         </CardActionArea>
-//         <CardActions>
-//           <Button size="large" className={classes.button}>
-//             Borrow
-//           </Button>
-//         </CardActions>
-//       </Card>
-//     );
-//   }
-// }
 
 export default ItemCard;

@@ -8,13 +8,7 @@ import registerServiceWorker from "./registerServiceWorker";
 import theme from "./theme";
 import AppRoutes from "./routes";
 import { BrowserRouter as Router } from "react-router-dom";
-/**
- * @TODO: Wrap your app with the Item Preview Provider
- *
- * import ItemPreviewProvider from './context/ItemPreviewProvider'
- *
- * Wrap this component around your app to access Item Preview Context API.
- */
+import ItemPreviewProvider from "./context/ItemPreviewProvider";
 /**
  * @TODO: Wrap your app with the Viewer Context
  *
@@ -32,10 +26,12 @@ const App = () => {
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <ApolloProvider client={client}>
-        {/* TODO: Add Layout component tags here */}
-        <Router>
-          <AppRoutes />
-        </Router>
+        <ItemPreviewProvider>
+          {/* TODO: Add Layout component tags here */}
+          <Router>
+            <AppRoutes />
+          </Router>
+        </ItemPreviewProvider>
       </ApolloProvider>
     </MuiThemeProvider>
   );

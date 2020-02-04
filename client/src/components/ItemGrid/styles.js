@@ -7,7 +7,10 @@ const useStyles = makeStyles({
       color: "red"
     }
   },
-  media: {}
+  media: {
+    height: "250px",
+    width: "100%"
+  }
 });
 
 export default useStyles;

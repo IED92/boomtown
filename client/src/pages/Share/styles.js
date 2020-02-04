@@ -1,3 +1,5 @@
-const styles = theme => ({});
+import { makeStyles } from "@material-ui/core";
 
-export default styles;
+const useStyles = makeStyles({});
+
+export default useStyles;
