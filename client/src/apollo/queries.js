@@ -67,12 +67,13 @@ export const ALL_TAGS_QUERY = gql`
 `;
 
 export const ADD_ITEM_MUTATION = gql`
-  mutation addItem($item: NewItemInput!) {
+  mutation AddItem($item: NewItemInput!) {
     addItem(item: $item) {
       id
       title
       tags {
         id
+        title
       }
     }
   }

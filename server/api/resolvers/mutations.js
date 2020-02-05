@@ -128,6 +128,7 @@ const mutationResolvers = app => ({
   },
   async addItem(parent, { item }, { pgResource, token }, info) {
     try {
+      console.log(item);
       // const user = await jwt.decode(context.token, app.get("JWT_SECRET"));
       const user = 1;
       const newItem = await pgResource.saveNewItem({
