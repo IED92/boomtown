@@ -6,6 +6,7 @@ import styles from "./styles.js";
 import { ItemPreviewContext } from "../../context/ItemPreviewProvider";
 import { ADD_ITEM_MUTATION } from "../../apollo/queries.js";
 import { Mutation } from "react-apollo";
+import validate from "./helpers/validation";
 
 const ShareItemForm = props => {
   const { input, tags, classes } = props;
@@ -59,6 +60,7 @@ const ShareItemForm = props => {
         <ItemPreviewContext.Consumer>
           {({ updatePreview, resetPreview }) => (
             <Form
+              validate={validate.bind(this)}
               onSubmit={fields => {
                 saveItem(fields, addItem);
               }}
