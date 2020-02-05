@@ -9,6 +9,7 @@ import theme from "./theme";
 import AppRoutes from "./routes";
 import { BrowserRouter as Router } from "react-router-dom";
 import ItemPreviewProvider from "./context/ItemPreviewProvider";
+import ViewerProvider from "./context/ViewerProvider";
 /**
  * @TODO: Wrap your app with the Viewer Context
  *
@@ -26,12 +27,13 @@ const App = () => {
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <ApolloProvider client={client}>
-        <ItemPreviewProvider>
-          {/* TODO: Add Layout component tags here */}
-          <Router>
-            <AppRoutes />
-          </Router>
-        </ItemPreviewProvider>
+        <ViewerProvider>
+          <ItemPreviewProvider>
+            <Router>
+              <AppRoutes />
+            </Router>
+          </ItemPreviewProvider>
+        </ViewerProvider>
       </ApolloProvider>
     </MuiThemeProvider>
   );

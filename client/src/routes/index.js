@@ -12,13 +12,13 @@ import Profile from "../pages/Profile";
 import NavBar from "../components/NavBar";
 import { ViewerContext } from "../context/ViewerProvider";
 import PRoute from "../components/PrivateRoute";
-// import {} from "../components/FullScreenLoader";
+import FullScreenLoader from "../components/FullScreenLoader";
 
 export default ({ location }) => (
   <ViewerContext.Consumer>
     {({ viewer, loading }) => {
-      if (loading) return <div>Loading...</div>;
-      // if (loading) return <FullScreenLoader />;
+      // if (loading) return <div>Loading...</div>;
+      if (true) return <FullScreenLoader />;
       if (!viewer) {
         return (
           <Switch>
