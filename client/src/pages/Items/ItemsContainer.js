@@ -14,7 +14,7 @@ class ItemsContainer extends Component {
             {({ loading, error, data }) => {
               const { items } = data;
               // if (loading) return <FullScreenLoader />;
-              if (loading) return "Loading...";
+              if (loading) return <div>Loading...</div>;
               if (error) return `Error! ${error.message}`;
               return items !== null && items !== undefined ? (
                 <Items items={items} />

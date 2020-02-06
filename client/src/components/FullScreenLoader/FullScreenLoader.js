@@ -2,27 +2,10 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { Typography, Grid } from "@material-ui/core";
-
-const useStyles = makeStyles(theme => ({
-  loader: {
-    height: "100vh",
-    width: "100vw",
-    display: "flex",
-    "& > * + *": {
-      marginLeft: theme.spacing(2)
-    },
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#303030"
-  },
-  textContainer: {
-    marginBottom: "20px"
-  }
-}));
+import styles from "./styles";
 
 export default function FullScreenLoader() {
-  const classes = useStyles();
+  const classes = styles();
   const [progress, setProgress] = React.useState(0);
 
   React.useEffect(() => {
