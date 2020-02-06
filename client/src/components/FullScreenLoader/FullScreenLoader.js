@@ -4,14 +4,20 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import { Typography, Grid } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
-  root: {
+  loader: {
     height: "100vh",
     width: "100vw",
     display: "flex",
     "& > * + *": {
       marginLeft: theme.spacing(2)
     },
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: "#303030"
+  },
+  textContainer: {
+    marginBottom: "20px"
   }
 }));
 
@@ -32,10 +38,12 @@ export default function FullScreenLoader() {
   }, []);
 
   return (
-    <div className={classes.root}>
-      <Typography variant="h3" color="white">
-        "For it is in giving, that we recieve."
-      </Typography>
+    <div className={classes.loader}>
+      <div className={classes.textContainer}>
+        <Typography variant="h3" color="white">
+          "For it is in giving, that we recieve."
+        </Typography>
+      </div>
       <CircularProgress variant="determinate" value={progress} />
     </div>
   );
