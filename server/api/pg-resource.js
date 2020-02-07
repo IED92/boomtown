@@ -10,7 +10,7 @@ module.exports = postgres => {
     // Create User
     async createUser({ fullname, email, password }) {
       const insertNewUser = {
-        text: `INSERT INTO USERS (name, email, password), values ($1, $2, $3) RETURNING *`,
+        text: `INSERT INTO users(fullname, email, password) values($1, $2, $3) RETURNING *;`,
         values: [fullname, email, password]
       };
       try {
@@ -18,9 +18,9 @@ module.exports = postgres => {
         return user.rows[0];
       } catch (err) {
         switch (true) {
-          case /users_fullname_key/.test(e.message):
+          case /users_fullname_key/.test(err.message):
             throw "An account with this username already exists.";
-          case /users_email_key/.test(e.message):
+          case /users_email_key/.test(err.message):
             throw "An account with this email already exists.";
           default:
             throw "There was a problem creating your account.";
@@ -57,7 +57,7 @@ module.exports = postgres => {
       }
     },
 
-    //Get Items
+    //Get items
     async getItems(idToOmit) {
       const getItemsQuery = {
         text: `SELECT * FROM items WHERE ownerid != $1`,

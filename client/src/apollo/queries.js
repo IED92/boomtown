@@ -31,7 +31,7 @@ const ItemFields = gql`
 `;
 
 export const ALL_ITEMS_QUERY = gql`
-  query items($filter: ID!) {
+  query items($filter: ID) {
     items(filter: $filter) {
       ...ItemFields
     }
@@ -84,10 +84,11 @@ export const ADD_ITEM_MUTATION = gql`
 
 export const VIEWER_QUERY = gql`
   query {
-    id
-    email
-    fullname
-    bio
+    viewer {
+      id
+      fullname
+      email
+    }
   }
 `;
 export const LOGOUT_MUTATION = gql`

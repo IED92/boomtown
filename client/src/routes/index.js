@@ -14,10 +14,11 @@ import { ViewerContext } from "../context/ViewerProvider";
 import PRoute from "../components/PrivateRoute";
 import FullScreenLoader from "../components/FullScreenLoader";
 
-export default ({ location }) => (
+export default props => (
   <ViewerContext.Consumer>
     {({ viewer, loading }) => {
       // if (loading) return <div>Loading...</div>;
+      console.log(viewer);
       if (loading) return <FullScreenLoader />;
       if (!viewer) {
         return (

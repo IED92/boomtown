@@ -4,6 +4,8 @@ import Items from "./Items";
 import { Query } from "react-apollo";
 import { ALL_ITEMS_QUERY } from "../../apollo/queries";
 import { ViewerContext } from "../../context/ViewerProvider";
+import Item from "./Items";
+import FullScreenLoader from "../../components/FullScreenLoader";
 
 class ItemsContainer extends Component {
   render() {
@@ -11,16 +13,17 @@ class ItemsContainer extends Component {
       <ViewerContext.Consumer>
         {({ viewer }) => (
           <Query query={ALL_ITEMS_QUERY} variables={{ filter: viewer }}>
-            {({ loading, error, data }) => {
-              const { items } = data;
-              // if (loading) return <FullScreenLoader />;
-              if (loading) return <div>Loading...</div>;
+            {({ loading, error, data, classes }) => {
+              console.log(viewer);
+              console.log("data: ", viewer.id);
+              if (loading) return <FullScreenLoader />;
               if (error) return `Error! ${error.message}`;
-              return items !== null && items !== undefined ? (
-                <Items items={items} />
-              ) : (
-                <p>No items</p>
-              );
+              if (data)
+                return (
+                  <div className={classes.ItemsContainer}>
+                    <Item item={data.items} />;
+                  </div>
+                );
             }}
           </Query>
         )}

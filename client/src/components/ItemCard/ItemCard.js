@@ -18,8 +18,8 @@ const ItemCard = props => {
     <Card className={classes.card}>
       <CardActionArea>
         <CardMedia
-          src="http://place-puppy.com/400x250"
-          title="placeholder"
+          image={(item && item.imageurl) || "http://place-puppy.com/400x250"}
+          title={item && item.title}
           className={classes.cardMedia}
         />
         <CardContent className={classes.cardContent}>
