@@ -1,15 +1,11 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import styles from './styles';
+import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import styles from "./styles";
+import { Container } from "@material-ui/core";
+import ProfileCard from "../../components/ProfileCard/";
 
-const Profile = ({ classes }) => {
-  return (
-    <div>
-      <p>
-        This is the profile page located at <code>/profile/:userId</code>.
-      </p>
-    </div>
-  );
+const Profile = ({ classes, users }) => {
+  return <ProfileCard />;
 };
 
 export default withStyles(styles)(Profile);
