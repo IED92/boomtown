@@ -7,19 +7,12 @@ const ItemGrid = ({ items }) => {
   const classes = styles();
   return (
     <Grid>
-      {items.map(item => (
-        <Grid item key={item.id}>
-          <ItemCard
-            owner={item.ownerid}
-            title={item.title}
-            image={item.imageurl}
-            description={item.description}
-            created={item.created}
-            tags={item.tags}
-            classes={classes}
-          />
-        </Grid>
-      ))}
+      {items &&
+        items.map(item => (
+          <Grid className={classes.itemsGrid} item key={item.id}>
+            <ItemCard item={item} classes={classes} />
+          </Grid>
+        ))}
     </Grid>
   );
 };
