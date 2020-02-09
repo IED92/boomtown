@@ -46,9 +46,6 @@ export const ALL_USER_ITEMS_QUERY = gql`
       bio
       email
       fullname
-      borrowed {
-        ...ItemFields
-      }
       items {
         ...ItemFields
       }

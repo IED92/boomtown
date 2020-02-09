@@ -9,6 +9,7 @@ import {
 import Gravatar from "react-gravatar";
 import styles from "./styles";
 import moment from "moment";
+import Items from "../../pages/Items/Items";
 
 const ProfileCard = props => {
   const { item, classes } = props;
@@ -21,18 +22,17 @@ const ProfileCard = props => {
         <CardContent className={classes.text}>
           <div className={classes.intro}>
             <Typography>
-              <Gravatar
-                // email={
-                //   (item && item.itemowner.email && item.itemowner.email) ||
-                //   item.email
-                // }
+              {/* <Gravatar
+                email={
+                  (item && item.itemowner.email && item.itemowner.email) ||
+                  item.email
+                }
                 className={classes.profile}
-              />
+              /> */}
             </Typography>
             <div>
               <Typography>
-                {(item && item.itemowner && item.itemowner.fullname) ||
-                  "Your Name"}
+                {(item && item.ownerid && item.ownerid.fullname) || "Your Name"}
               </Typography>
               <Typography>{item && moment(item.created).fromNow()}</Typography>
             </div>
