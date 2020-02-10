@@ -4,9 +4,6 @@ import { ALL_ITEMS_QUERY } from "../../apollo/queries";
 import { ViewerContext } from "../../context/ViewerProvider";
 import Item from "./Items";
 import FullScreenLoader from "../../components/FullScreenLoader";
-import styles from "../Items/styles";
-
-const classes = styles();
 
 class ItemsContainer extends Component {
   render() {
@@ -19,7 +16,7 @@ class ItemsContainer extends Component {
               if (error) return `Error! ${error.message}`;
               if (data)
                 return (
-                  <div className={classes.itemBox}>
+                  <div className="itembox">
                     <Item items={data.items} />;
                   </div>
                 );

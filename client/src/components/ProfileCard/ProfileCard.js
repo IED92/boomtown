@@ -9,12 +9,11 @@ import {
 import Gravatar from "react-gravatar";
 import styles from "./styles";
 import moment from "moment";
-import Items from "../../pages/Items/Items";
 
 const ProfileCard = props => {
-  const { item, classes } = props;
-
-  console.log(item);
+  const { items, classes } = props;
+  const { id } = items;
+  console.log(items);
 
   return (
     <Card className={classes.card}>
@@ -22,27 +21,26 @@ const ProfileCard = props => {
         <CardContent className={classes.text}>
           <div className={classes.intro}>
             <Typography>
-              {/* <Gravatar
-                email={
-                  (item && item.itemowner.email && item.itemowner.email) ||
-                  item.email
-                }
+              <Gravatar
+                email={(items && items.email) || "No email"}
                 className={classes.profile}
-              /> */}
+              />
             </Typography>
             <div>
               <Typography>
-                {(item && item.ownerid && item.ownerid.fullname) || "Your Name"}
+                {(items && items.fullname) || "No Name provided"}
               </Typography>
-              <Typography>{item && moment(item.created).fromNow()}</Typography>
+              <Typography>
+                {items && moment(items.created).fromNow()}
+              </Typography>
             </div>
           </div>
           <Typography className={classes.title}>
-            {item && item.title}
+            {items && items.title}
           </Typography>
           {/* <div className={classes.tagsContainer}>
-            {item.tags &&
-              item.tags.map(tag => {
+            {items.tags &&
+              items.tags.map(tag => {
                 return (
                   <Typography
                     variant="subtitle2"
@@ -55,7 +53,7 @@ const ProfileCard = props => {
                 );
               })}
           </div> */}
-          <Typography>{item && item.description}</Typography>
+          <Typography>{items && items.description}</Typography>
         </CardContent>
       </CardActionArea>
     </Card>

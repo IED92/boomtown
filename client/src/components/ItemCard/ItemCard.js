@@ -9,27 +9,26 @@ import {
   Typography
 } from "@material-ui/core";
 import Gravatar from "react-gravatar";
-// import styles from "./styles";
+import styles from "./styles";
 
 const ItemCard = props => {
-  const { item, classes } = props;
-  console.log(props);
-  console.log(item);
+  const { item } = props;
+  const style = styles();
 
   return (
-    <Card className={classes.card}>
+    <Card className={style.card}>
       <CardActionArea>
         <CardMedia
-          image={(item && item.imageurl) || "http://place-puppy.com/400x250"}
+          image={"http://place-puppy.com/400x250"}
           title={item && item.title}
-          className={classes.cardMedia}
+          className={style.cardMedia}
         />
-        <CardContent className={classes.cardContent}>
+        <CardContent className={style.cardContent}>
           <Gravatar
             email={
               (item && item.ownerid.email && item.ownerid.email) || item.email
             }
-            className={classes.profile}
+            className={style.profile}
           />
           <Typography>{item.created}</Typography>
           <Typography>{item && item.title}</Typography>
@@ -37,7 +36,7 @@ const ItemCard = props => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="large" className={classes.borrowButton}>
+        <Button size="large" className={style.borrowButton}>
           Borrow
         </Button>
       </CardActions>
