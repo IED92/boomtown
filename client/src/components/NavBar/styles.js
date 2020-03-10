@@ -1,15 +1,21 @@
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1
+const useStyles = makeStyles({
+  navbar: {
+    paddingLeft: 40,
+    width: "100%",
+    justifyContent: "space-between"
   },
-  menuButton: {
-    marginRight: theme.spacing(2)
+  share: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
   },
-  title: {
-    flexGrow: 1
+  sharetext: {
+    marginLeft: 10,
+    marginRight: 20
   }
-}));
+});
 
 export default useStyles;

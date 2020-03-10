@@ -19,7 +19,7 @@ const ItemCard = props => {
     <Card className={style.card}>
       <CardActionArea>
         <CardMedia
-          image={"http://place-puppy.com/400x250"}
+          image={"https://placedog.net/521"}
           title={item && item.title}
           className={style.cardMedia}
         />

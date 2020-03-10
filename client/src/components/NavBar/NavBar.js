@@ -1,45 +1,50 @@
 import React from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+import {
+  AppBar,
+  Typography,
+  Toolbar,
+  Box,
+  Button,
+  IconButton,
+  Input
+} from "@material-ui/core/";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
 import styles from "./styles";
 import { ReactSVG } from "react-svg";
 import logo from "../../images/boomtown.svg";
 import { withRouter } from "react-router-dom";
+import Menu from "../Menu";
 
 const NavBar = ({ location }) => {
-  const classes = styles();
+  const style = styles();
   console.log(location);
   return (
-    <div className={classes.NavBar}>
+    <>
       <AppBar position="fixed">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
+        <Toolbar className={style.navbar}>
           <ReactSVG
             src={logo}
             wrapper="span"
             className="boomtown-logo"
+            beforeInjection={svg => {
+              svg.classList.add("svg-class-name");
+              svg.setAttribute("style", "width: 40px", "height: 40px");
+            }}
             onClick={() => {
               console.log("wrapper onClick");
             }}
             style={{}}
           />
-          <Button color="inherit">Login</Button>
+          <Box className={style.share}>
+            <AddCircleIcon />
+            <Typography className={style.sharetext}>SHARE SOMETHING</Typography>
+            <Menu />
+          </Box>
         </Toolbar>
       </AppBar>
       <Toolbar />
       <Toolbar />
-    </div>
+    </>
   );
 };
 
