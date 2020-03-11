@@ -1,18 +1,35 @@
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
-  //   button: {
-  //     color: "lightblue",
-  //     "& .MuiButton-label": {
-  //       color: "red"
-  //     }
-  //   },
   card: {
-    maxWidth: "500px"
+    width: "500px",
+    minWidth: "360px",
+    maxHeight: "600px"
   },
   cardMedia: {
-    height: "250px",
+    height: "275px",
     width: "100%"
+  },
+  profilepic: {
+    borderRadius: 50,
+    marginRight: 20
+  },
+  user: {
+    display: "flex",
+    alignItems: "center",
+    marginBottom: 30
+  },
+  created: {
+    color: "grey"
+  },
+  title: {
+    fontSize: 24,
+    marginBottom: 10
+  },
+  tags: {
+    fontSize: 18,
+    color: "grey",
+    marginBottom: 10
   }
 });
 

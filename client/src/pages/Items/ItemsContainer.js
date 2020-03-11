@@ -3,6 +3,7 @@ import { Query } from "react-apollo";
 import { ALL_ITEMS_QUERY } from "../../apollo/queries";
 import { ViewerContext } from "../../context/ViewerProvider";
 import Item from "./Items";
+import styles from "./styles";
 import FullScreenLoader from "../../components/FullScreenLoader";
 
 class ItemsContainer extends Component {
@@ -16,7 +17,10 @@ class ItemsContainer extends Component {
               if (error) return `Error! ${error.message}`;
               if (data)
                 return (
-                  <div className="itembox">
+                  <div
+                    className="itembox"
+                    style={{ backgroundColor: "#212121" }}
+                  >
                     <Item items={data.items} />;
                   </div>
                 );

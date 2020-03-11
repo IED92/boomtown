@@ -10,9 +10,8 @@ import {
 } from "@material-ui/core/";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import styles from "./styles";
-import { ReactSVG } from "react-svg";
 import logo from "../../images/boomtown.svg";
-import { withRouter } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import Menu from "../Menu";
 
 const NavBar = ({ location }) => {
@@ -22,19 +21,11 @@ const NavBar = ({ location }) => {
     <>
       <AppBar position="fixed">
         <Toolbar className={style.navbar}>
-          <ReactSVG
-            src={logo}
-            wrapper="span"
-            className="boomtown-logo"
-            beforeInjection={svg => {
-              svg.classList.add("svg-class-name");
-              svg.setAttribute("style", "width: 40px", "height: 40px");
-            }}
-            onClick={() => {
-              console.log("wrapper onClick");
-            }}
-            style={{}}
-          />
+          <NavLink to="/items" className={style.link}>
+            <Button>
+              <img src={logo} alt="boomtown" className={style.logo} />
+            </Button>
+          </NavLink>
           <Box className={style.share}>
             <AddCircleIcon />
             <Typography className={style.sharetext}>SHARE SOMETHING</Typography>
@@ -42,8 +33,8 @@ const NavBar = ({ location }) => {
           </Box>
         </Toolbar>
       </AppBar>
-      <Toolbar />
-      <Toolbar />
+      <Toolbar className={style.toolbar} />
+      <Toolbar className={style.toolbar} />
     </>
   );
 };

@@ -6,14 +6,19 @@ import {
   CardContent,
   CardMedia,
   Button,
-  Typography
+  Typography,
+  Box
 } from "@material-ui/core";
 import Gravatar from "react-gravatar";
+import moment from "moment";
 import styles from "./styles";
 
 const ItemCard = props => {
   const { item } = props;
+  const { tags } = item;
   const style = styles();
+  console.log("item: ", item);
+  console.log("tags: ", tags);
 
   return (
     <Card className={style.card}>
@@ -24,19 +29,31 @@ const ItemCard = props => {
           className={style.cardMedia}
         />
         <CardContent className={style.cardContent}>
-          <Gravatar
-            email={
-              (item && item.ownerid.email && item.ownerid.email) || item.email
-            }
-            className={style.profile}
-          />
-          <Typography>{item.created}</Typography>
-          <Typography>{item && item.title}</Typography>
+          <Box className={style.user}>
+            <Gravatar
+              size={60}
+              email={
+                (item && item.ownerid.email && item.ownerid.email) || item.email
+              }
+              className={style.profilepic}
+            />
+            <Box className={style.userText}>
+              <Typography>{item.ownerid.fullname}</Typography>
+              <Typography className={style.created}>
+                {moment(item.created).fromNow()}
+              </Typography>
+            </Box>
+          </Box>
+          <Typography className={style.title}>{item && item.title}</Typography>
+          {tags &&
+            tags.map(tag => (
+              <Typography className={style.tags}>{tag.title}, </Typography>
+            ))}
           <Typography>{item && item.description}</Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="large" className={style.borrowButton}>
+        <Button variant="outlined" size="large" className={style.button}>
           Borrow
         </Button>
       </CardActions>

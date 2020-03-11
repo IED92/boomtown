@@ -7,9 +7,13 @@ const useStyles = makeStyles({
       color: "red"
     }
   },
-  media: {
-    height: "250px",
-    width: "100%"
+  grid: {
+    backgroundColor: "#212121",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 60,
+    paddingTop: 30
   }
 });
 

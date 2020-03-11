@@ -1,14 +1,19 @@
 import React from "react";
-import { Container, withStyles } from "@material-ui/core/";
+import { Box, Container, withStyles } from "@material-ui/core/";
 import styles from "./styles";
 import ItemGrid from "../../components/ItemGrid/";
 
-const Items = ({ classes, items }) => {
+const Items = ({ items }) => {
+  const style = styles();
   return (
-    <Container maxWidth="lg" className={classes.itemsContainer}>
+    <Container
+      disableGutters="false"
+      maxWidth="false"
+      className={style.container}
+    >
       <ItemGrid items={items} />
     </Container>
   );
 };
 
-export default withStyles(styles)(Items);
+export default Items;

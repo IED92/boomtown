@@ -15,6 +15,13 @@ const useStyles = makeStyles({
   sharetext: {
     marginLeft: 10,
     marginRight: 20
+  },
+  logo: {
+    width: 50,
+    height: 50
+  },
+  toolbar: {
+    backgroundColor: "#212121"
   }
 });
 
