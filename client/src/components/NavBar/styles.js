@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
   navbar: {
-    paddingLeft: 40,
+    padding: 10,
     width: "100%",
     justifyContent: "space-between"
   },
@@ -18,7 +18,8 @@ const useStyles = makeStyles({
   },
   logo: {
     width: 50,
-    height: 50
+    height: 50,
+    marginLeft: 30
   },
   toolbar: {
     backgroundColor: "#212121"

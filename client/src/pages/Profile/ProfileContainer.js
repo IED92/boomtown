@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import Profile from "./Profile";
 import FullScreenLoader from "../../components/FullScreenLoader";
+import { Container } from "@material-ui/core";
 import { Query } from "react-apollo";
 import { ALL_USER_ITEMS_QUERY } from "../../apollo/queries";
 import { ViewerContext } from "../../context/ViewerProvider";
 import ItemGrid from "../../components/ItemGrid";
 import styles from "../Profile/styles";
-
-const classes = styles();
 
 class ProfileContainer extends Component {
   render() {
@@ -28,10 +27,10 @@ class ProfileContainer extends Component {
                 if (error) return `Error! ${error.message}`;
                 if (data)
                   return (
-                    <div className={classes.itemBox}>
+                    <Container maxWidth="lg">
                       <Profile items={viewer} />;
                       <ItemGrid items={data.items} />;
-                    </div>
+                    </Container>
                   );
               }}
             </Query>
