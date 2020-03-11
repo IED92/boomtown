@@ -40,18 +40,13 @@ export default function NavMenu() {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <Link to="/profile" className={style.link}>
+            <Link to="/profile">
               <MenuItem onClick={handleClose} className={style.item}>
                 <FingerprintIcon className={style.icon} />
                 <Typography className={style.text}>Profile</Typography>
               </MenuItem>
             </Link>
-            <NavLink
-              to="/home"
-              onClick={logout}
-              underline="none"
-              className={style.link}
-            >
+            <NavLink to="/home" onClick={logout}>
               <MenuItem onClick={handleClose} className={style.item}>
                 <PowerSettingsNewIcon className={style.icon} />
                 <Typography className={style.text}>Logout</Typography>
