@@ -3,7 +3,6 @@ import { Query } from "react-apollo";
 import { ALL_ITEMS_QUERY } from "../../apollo/queries";
 import { ViewerContext } from "../../context/ViewerProvider";
 import Item from "./Items";
-import styles from "./styles";
 import FullScreenLoader from "../../components/FullScreenLoader";
 
 class ItemsContainer extends Component {

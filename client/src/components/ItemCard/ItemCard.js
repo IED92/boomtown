@@ -14,11 +14,9 @@ import moment from "moment";
 import styles from "./styles";
 
 const ItemCard = props => {
-  const { item } = props;
+  const { item, viewer } = props;
   const { tags } = item;
   const style = styles();
-  console.log("item: ", item);
-  console.log("tags: ", tags);
 
   return (
     <Card className={style.card}>
@@ -33,12 +31,18 @@ const ItemCard = props => {
             <Gravatar
               size={60}
               email={
-                (item && item.ownerid.email && item.ownerid.email) || item.email
+                viewer
+                  ? viewer.email
+                  : item && item.ownerid && item.ownerid.email
               }
               className={style.profilepic}
             />
             <Box className={style.userText}>
-              <Typography>{item.ownerid.fullname}</Typography>
+              <Typography>
+                {viewer
+                  ? viewer.fullname
+                  : item && item.ownerid && item.ownerid.fullname}
+              </Typography>
               <Typography className={style.created}>
                 {moment(item.created).fromNow()}
               </Typography>

@@ -16,7 +16,6 @@ import Menu from "../Menu";
 
 const NavBar = ({ location }) => {
   const style = styles();
-  console.log(location);
   return (
     <>
       <AppBar position="fixed">
@@ -27,13 +26,20 @@ const NavBar = ({ location }) => {
             </Button>
           </NavLink>
           <Box className={style.share}>
-            <AddCircleIcon />
-            <Typography className={style.sharetext}>SHARE SOMETHING</Typography>
+            {location.pathname !== "/share" && (
+              <NavLink to="/share">
+                <Button>
+                  <AddCircleIcon />
+                  <Typography className={style.sharetext}>
+                    SHARE SOMETHING
+                  </Typography>
+                </Button>
+              </NavLink>
+            )}
             <Menu />
           </Box>
         </Toolbar>
       </AppBar>
-      <Toolbar className={style.toolbar} />
       <Toolbar className={style.toolbar} />
     </>
   );

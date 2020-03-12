@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
     padding: 60,
-    paddingTop: 30
+    paddingTop: 100
   }
 });
 
